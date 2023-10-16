@@ -14,6 +14,11 @@ public class PrefabStack : MonoBehaviour
     {
     }
 
+    public void Update()
+    {
+        //stackParent.transform.rotation = 
+    }
+
     // 初始化堆栈
 
     public void InitializeStack(int count)

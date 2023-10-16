@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 15.2, y: -51.300003}
+  m_AnchoredPosition: {x: 15.2, y: -74}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79279335
@@ -213,11 +213,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 24
   m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 24
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -319,15 +319,15 @@ RectTransform:
   m_GameObject: {fileID: 688706835}
   m_LocalRotation: {x: -0.18301266, y: 0.6830127, z: -0.18301266, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 0, z: 9.141116}
-  m_LocalScale: {x: 40, y: 40, z: 40}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1811537186}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -30}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -98, y: 44}
+  m_AnchoredPosition: {x: -134.5, y: 81.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705507993
@@ -650,8 +650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 419316738}
   distance: 15
-  xSpeed: 360
-  ySpeed: 360
+  xSpeed: 120
+  ySpeed: 120
   moveSpeed: 5
   yMinLimit: 30
   yMaxLimit: 60
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 1138427763}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

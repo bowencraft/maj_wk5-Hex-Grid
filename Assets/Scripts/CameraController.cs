@@ -46,12 +46,12 @@ public class CameraController : MonoBehaviour
             Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 1.0f, 50.0f);
         }
 
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
 
         if (Input.GetMouseButtonDown(0)
-            //&& !Physics.Raycast(ray, out hit)
-            )
+            && hit.collider.CompareTag("Floor"))
         {
             dragging = true;
         }
