@@ -70,8 +70,6 @@ public class HexGrid : MonoBehaviour
 
                 if (BackgroundCoords.Contains(clickedCoord) && !ActiveCoords.Contains(clickedCoord))
                 {
-                    ActiveCoords.Add(clickedCoord);
-                    BackgroundCoords.Remove(clickedCoord);
 
                     // 在点击位置实例化Prefab
                     Vector3 spawnPos = HexCoord.ToWorldPos(clickedCoord, HexSize);
@@ -79,6 +77,9 @@ public class HexGrid : MonoBehaviour
                     GameObject popObject = PrefabStack.Pop();
                     if (popObject != null)
                     {
+                        ActiveCoords.Add(clickedCoord);
+                        BackgroundCoords.Remove(clickedCoord);
+
                         float _y = popObject.transform.rotation.eulerAngles.y - 90;
                         Instantiate(popObject, spawnPos, Quaternion.Euler(0, prefabAngle + _y, 0));
                         //Debug.Log(prefabAngle + " " + _y);
