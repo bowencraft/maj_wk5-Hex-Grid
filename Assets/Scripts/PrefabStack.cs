@@ -27,7 +27,7 @@ public class PrefabStack : MonoBehaviour
         {
             GameObject randomPrefab = prefabs[Random.Range(0, prefabs.Count)]; // 随机选择一个Prefab
             GameObject go = Instantiate(randomPrefab, stackParent);
-            SetLayer(go, 5);
+            SetLayer(go.transform.GetChild(1).gameObject, 5);
 
             go.transform.localPosition = new Vector3(0, stack.Count * offset, 0);
             stack.Add(go);
@@ -44,7 +44,17 @@ public class PrefabStack : MonoBehaviour
         }
     }
 
-// 弹出堆栈的顶部prefab
+    // 弹出堆栈的顶部prefab
+    public GameObject PreviewPop()
+    {
+        if (stack.Count > 0)
+        {
+            return stack[stack.Count - 1];
+        }
+        return null;
+    }
+
+
     public GameObject Pop()
     {
         if (stack.Count > 0)
@@ -63,7 +73,10 @@ public class PrefabStack : MonoBehaviour
         {
             GameObject top = stack[stack.Count - 1];
             Transform objTransform = top.transform;
-            objTransform.rotation *= Quaternion.Euler(0, 60, 0);
+            objTransform.GetChild(1).rotation *= Quaternion.Euler(0, 60f, 0);
+            //objTransform.rotation *= Quaternion.Euler(0, 60, 0);
+
+            top.GetComponent<PrefabCell>().RotateClockwise();
 
         }
     }
@@ -77,5 +90,10 @@ public class PrefabStack : MonoBehaviour
             return top.transform.rotation;
         }
         return Quaternion.Euler(0, 0, 0);
+    }
+
+    public int Count()
+    {
+        return stack.Count;
     }
 }

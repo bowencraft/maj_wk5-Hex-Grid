@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class CameraController : MonoBehaviour
 {
@@ -44,14 +45,12 @@ public class CameraController : MonoBehaviour
         {
             Camera.main.orthographicSize -= scrollWheel * 2.0f;
             Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 1.0f, 50.0f);
+            distance -= scrollWheel * 2.0f;
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit);
 
         if (Input.GetMouseButtonDown(0)
-            && hit.collider.CompareTag("Floor"))
+            && !FindObjectOfType<HexGrid>().isHovering)
         {
             dragging = true;
         }
@@ -124,6 +123,11 @@ public class CameraController : MonoBehaviour
         Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 1.0f, 50.0f);
 
         Vector3 moveDirection = new Vector3(horizontal, vertical, 0);
+
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+        //Physics.Raycast(ray, out hit);
+
         target.position += transform.rotation * moveDirection * moveSpeed * Time.deltaTime;
     }
 
